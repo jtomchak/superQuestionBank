@@ -1,0 +1,21 @@
+extends layout
+ 
+block content
+    h1= title
+    if error
+     p Something failed: #{errorMessage} 
+    form(name="add-estimation", method="post")
+        div.input
+            span.label Question
+            input(type="text", name="question", value=question.question)
+        div.input
+            span.label Answer 
+            textarea(name="answer", cols="80", rows="20")
+             | #{question.answer}
+        div.input
+            span.label Author
+            input(type="text", name="author", value=question.author)
+        div.actions
+            input(type="submit", value="add")
+        a(href="/")
+         button(type="button") back
